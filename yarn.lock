@@ -1005,9 +1005,9 @@
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
 
-"@ssangha/dnd@^1.1.997":
-  version "1.1.997"
-  resolved "https://registry.yarnpkg.com/@ssangha/dnd/-/dnd-1.1.997.tgz#d38dcd1c4ff00a97679069562f6ce09dabd28264"
+"@ssangha/dnd@^1.1.998":
+  version "1.1.998"
+  resolved "https://registry.yarnpkg.com/@ssangha/dnd/-/dnd-1.1.998.tgz#f85b4c8a221bcd58a69014b7ef8db8217928b238"
   dependencies:
     cypress "^4.0.1"
     gsap "^2.1.3"
