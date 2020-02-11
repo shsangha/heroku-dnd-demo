@@ -92,12 +92,9 @@
   background: darkgray;
 }
 
-.draggable:focus {
-  border: 2px solid red;
-}
-
+.draggable:focus,
 .dragging {
-  background: red;
+  border: 2px solid red;
 }
 
 .cap {
