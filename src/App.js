@@ -19,13 +19,19 @@ import serge from "./serge.png";
 export default () => {
   return (
     <Container
+      placeholderClass="dragging"
       initialState={{
         horizontal: [kyle, chris, dewan],
         vertical: [fred, malcom, marc, matt, norm],
         grid: [og, pascal, pat, rondae, serge]
       }}
     >
-      {({ state: { values } }) => {
+      {({
+        state: {
+          values,
+          dragState: { moveType }
+        }
+      }) => {
         return (
           <div className="page">
             <h1 className="header">
@@ -41,7 +47,16 @@ export default () => {
                       {values.horizontal.map((src, index) => {
                         return (
                           <Draggable index={index} key={src}>
-                            {() => <img className="horizontal_img" src={src} />}
+                            {({ dragging }) => (
+                              <img
+                                className={`horizontal_img draggable ${
+                                  dragging && moveType === "keyboard"
+                                    ? "dragging"
+                                    : ""
+                                }`}
+                                src={src}
+                              />
+                            )}
                           </Draggable>
                         );
                       })}
@@ -53,12 +68,21 @@ export default () => {
               <div className="vertical_wrapper">
                 <h2 className="category">Bench</h2>
                 <Droppable name="vertical">
-                  {() => (
+                  {({ dragging }) => (
                     <div className="vertical_droppable">
                       {values.vertical.map((src, index) => {
                         return (
                           <Draggable index={index} key={src}>
-                            {() => <img className="vertical_img " src={src} />}
+                            {({ dragging }) => (
+                              <img
+                                className={`vertical_img draggable ${
+                                  dragging && moveType === "keyboard"
+                                    ? "dragging"
+                                    : ""
+                                } `}
+                                src={src}
+                              />
+                            )}
                           </Draggable>
                         );
                       })}
@@ -68,13 +92,28 @@ export default () => {
               </div>
               <div className="grid_wrapper">
                 <h2 className="category">Starters</h2>
-                <Droppable name="grid">
-                  {() => (
-                    <div className="grid_droppable">
+                <Droppable cap={5} name="grid">
+                  {({ atCapacity, dragging }) => (
+                    <div
+                      className={`grid_droppable ${
+                        dragging && atCapacity && moveType === "pointer"
+                          ? "cap"
+                          : ""
+                      }`}
+                    >
                       {values.grid.map((src, index) => {
                         return (
                           <Draggable index={index} key={src}>
-                            {() => <img className="grid_img " src={src} />}
+                            {({ dragging }) => (
+                              <img
+                                className={`grid_img draggable ${
+                                  dragging && moveType === "keyboard"
+                                    ? "dragging"
+                                    : ""
+                                } `}
+                                src={src}
+                              />
+                            )}
                           </Draggable>
                         );
                       })}

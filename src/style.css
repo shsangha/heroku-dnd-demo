@@ -1,8 +1,9 @@
 .page {
-  height: 300vh;
   background: black;
   padding: 0.4rem;
   padding-top: 0;
+  height: 100vh;
+  overflow: scroll;
 }
 
 *,
@@ -89,6 +90,19 @@
 .grid_img {
   width: 9rem;
   background: darkgray;
+}
+
+.draggable:focus {
+  border: 2px solid red;
+}
+
+.dragging {
+  background: red;
+}
+
+.cap {
+  border: 2px solid red;
+  background-color: red;
 }
 
 @media only screen and (min-width: 700px) {
