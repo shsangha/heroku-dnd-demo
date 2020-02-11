@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 import { Container, Draggable, Droppable } from "@ssangha/dnd";
 
-// in the state to start
 import kyle from "./kyle.png";
 import chris from "./chris.png";
 import dewan from "./dewan.png";
@@ -16,25 +15,17 @@ import pascal from "./pascal.png";
 import pat from "./pat.png";
 import rondae from "./rondae.png";
 import serge from "./serge.png";
-//
+
 export default () => {
   return (
     <Container
-      placeholderClass="dragging"
       initialState={{
         horizontal: [kyle, chris, dewan],
         vertical: [fred, malcom, marc, matt, norm],
         grid: [og, pascal, pat, rondae, serge]
       }}
     >
-      {({
-        state: {
-          values,
-          dragState: { moveType }
-        }
-      }) => {
-        console.log(moveType);
-
+      {({ state: { values } }) => {
         return (
           <div className="page">
             <h1 className="header">
@@ -50,16 +41,7 @@ export default () => {
                       {values.horizontal.map((src, index) => {
                         return (
                           <Draggable index={index} key={src}>
-                            {({ dragging }) => (
-                              <img
-                                className={`horizontal_img draggable  ${
-                                  dragging && moveType === "keyboard"
-                                    ? "dragging"
-                                    : ""
-                                }`}
-                                src={src}
-                              />
-                            )}
+                            {() => <img className="horizontal_img" src={src} />}
                           </Draggable>
                         );
                       })}
@@ -76,16 +58,7 @@ export default () => {
                       {values.vertical.map((src, index) => {
                         return (
                           <Draggable index={index} key={src}>
-                            {({ dragging }) => (
-                              <img
-                                className={`vertical_img draggable ${
-                                  dragging && moveType === "keyboard"
-                                    ? "dragging"
-                                    : ""
-                                }`}
-                                src={src}
-                              />
-                            )}
+                            {() => <img className="vertical_img " src={src} />}
                           </Draggable>
                         );
                       })}
@@ -101,16 +74,7 @@ export default () => {
                       {values.grid.map((src, index) => {
                         return (
                           <Draggable index={index} key={src}>
-                            {({ dragging }) => (
-                              <img
-                                className={` grid_img draggable  ${
-                                  dragging && moveType === "keyboard"
-                                    ? "dragging"
-                                    : ""
-                                }`}
-                                src={src}
-                              />
-                            )}
+                            {() => <img className="grid_img " src={src} />}
                           </Draggable>
                         );
                       })}

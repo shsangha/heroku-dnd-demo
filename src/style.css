@@ -1,6 +1,5 @@
 .page {
-  height: 100vh;
-  max-height: 100vh;
+  height: 300vh;
   background: black;
   padding: 0.4rem;
   padding-top: 0;
@@ -37,6 +36,7 @@
   background: gray;
   margin-bottom: 4rem;
   display: flex;
+
   overflow: scroll;
 }
 
@@ -73,7 +73,6 @@
 
 .horizontal_img {
   width: 4rem;
-  height: 4rem;
   flex-shrink: 0;
   flex-grow: 0;
   background: darkgray;
@@ -90,13 +89,6 @@
 .grid_img {
   width: 9rem;
   background: darkgray;
-}
-.draggable:focus {
-  border: 2px solid red;
-}
-
-.draggable.dragging {
-  background: red;
 }
 
 @media only screen and (min-width: 700px) {
@@ -126,7 +118,8 @@
   }
 
   .vertical_img {
-    width: 10rem;
+    width: auto;
+    height: 6rem;
   }
   .grid_img {
     width: 14rem;
